@@ -14,7 +14,6 @@ class ContractTest {
             Customer("John Buyer"),
             Car("Mercedes Benz C-Class"),
             Amount(20_000.00, Currency.EUR))
-        var vierGewinntRahmenUnderTest: VierGewinntRahmen = VierGewinntRahmen()
 
         // when
 
