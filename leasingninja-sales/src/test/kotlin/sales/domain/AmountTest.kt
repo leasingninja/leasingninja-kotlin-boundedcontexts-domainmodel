@@ -1,12 +1,12 @@
 package io.leasingninja.sales.domain
 
-import kotlin.test.Test
-import kotlin.test.assertNotNull
+//import kotlin.test.Test
 
 import io.kotest.matchers.*
+import io.kotest.core.spec.style.AnnotationSpec
 //import io.kotest.matchers.booleans.*
 
-class AppTest {
+class AmountTest : AnnotationSpec(){
     @Test
     fun givenTwoAmountsWithRoundingAfterThePoint_whenEquals_thenAreEqual() {
         // given
