@@ -1,10 +1,7 @@
 package io.leasingninja.sales.domain
 
-//import kotlin.test.Test
-
 import io.kotest.matchers.*
 import io.kotest.core.spec.style.AnnotationSpec
-//import io.kotest.matchers.booleans.*
 
 class AmountTest : AnnotationSpec(){
     @Test

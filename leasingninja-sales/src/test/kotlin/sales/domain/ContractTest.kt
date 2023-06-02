@@ -1,11 +1,9 @@
 package io.leasingninja.sales.domain
 
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
+import io.kotest.matchers.*
+import io.kotest.core.spec.style.AnnotationSpec
 
-class ContractTest {
+class ContractTest : AnnotationSpec() {
 
     @Test
     fun givenANewContract_whenSign_thenContractIsSigned() {
