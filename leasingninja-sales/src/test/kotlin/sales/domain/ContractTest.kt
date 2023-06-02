@@ -9,7 +9,6 @@ class ContractTest {
 
     @Test
     fun givenANewContract_whenSign_thenContractIsSigned() {
-        // Arrange
         // given
         var contract = Contract(ContractNumber("4711"),
             Customer("John Buyer"),
@@ -17,13 +16,10 @@ class ContractTest {
             Amount(20_000.00, Currency.EUR))
         var vierGewinntRahmenUnderTest: VierGewinntRahmen = VierGewinntRahmen()
 
-        // Act
-        vierGewinntRahmenUnderTest.einsetzen(Spalte.EINS, Farbe.GELB)
-        vierGewinntRahmenUnderTest.einsetzen(Spalte.EINS, Farbe.GELB)
-        vierGewinntRahmenUnderTest.einsetzen(Spalte.EINS, Farbe.GELB)
+        // when
 
-        // Assert
-        assertFalse(vierGewinntRahmenUnderTest.isVierSteineUebereinander(Spalte.EINS))
+        // then
+
     }
 
 }
