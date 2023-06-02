@@ -21,5 +21,4 @@ data class Amount private constructor(
     val amount get() = amountInCents / 100.0
 
 	override fun toString() = currency.toString() + " " + amount
-
 }
