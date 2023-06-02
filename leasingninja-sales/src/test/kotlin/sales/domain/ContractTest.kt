@@ -14,9 +14,13 @@ class ContractTest : AnnotationSpec() {
             Amount(20_000.00, Currency.EUR))
 
         // when
+        contract.calculateInstallmentFor(LeaseTerm.ofMonths(48), Interest(3.7));
 
         // then
-
+        contract.isCalculated shouldBe true
+	//	contract.leaseTerm shouldBe LeaseTerm.ofMonths(48)
+	//	contract.interest shouldBe Interest(3.7)
+	//	contract.installment shouldBe Amount(897.80, Currency.EUR)
     }
 
 }

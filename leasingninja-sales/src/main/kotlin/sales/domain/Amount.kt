@@ -19,4 +19,7 @@ data class Amount private constructor(
         : this(Math.round(amount * 100), currency)
 
     val amount get() = amountInCents / 100.0
+
+	override fun toString() = currency.toString() + " " + amount
+
 }
