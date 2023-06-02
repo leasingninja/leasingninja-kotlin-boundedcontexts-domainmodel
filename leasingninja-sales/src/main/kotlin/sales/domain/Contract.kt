@@ -10,7 +10,9 @@ import org.jmolecules.ddd.annotation.Entity
 data class Customer(val customer: String)
 
 @ValueObject
-data class LeaseTerm private constructor(val noOfMonths: Int) {
+data class LeaseTerm private constructor(
+    val noOfMonths: Int
+) {
     companion object {
         fun ofMonths(noOfMonths: Int) = LeaseTerm(noOfMonths)
         fun ofYears(noOfYears: Int) = LeaseTerm(noOfYears * 12)
