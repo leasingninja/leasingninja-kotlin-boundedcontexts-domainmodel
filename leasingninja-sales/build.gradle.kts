@@ -1,5 +1,5 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.8.21"
+    id("org.jetbrains.kotlin.jvm") version "1.8.22"
 
     //application
 }
@@ -12,7 +12,7 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     //implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    implementation("org.jmolecules:jmolecules-ddd:1.6.0")
+    implementation("org.jmolecules:jmolecules-ddd:1.7.0")
 
     tasks.withType<Test>().configureEach {
         useJUnitPlatform()
