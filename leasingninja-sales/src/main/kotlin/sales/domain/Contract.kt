@@ -5,6 +5,7 @@ import java.time.LocalDate
 import org.jmolecules.ddd.annotation.ValueObject
 import org.jmolecules.ddd.annotation.Service
 import org.jmolecules.ddd.annotation.Entity
+import org.jmolecules.ddd.annotation.Identity
 
 @ValueObject
 data class Customer(val customer: String)
@@ -39,7 +40,7 @@ fun pmt(n: Double, iInPercent: Double, pv: Double, fv: Double, s: Double): Doubl
 
 @Entity
 class Contract(
-    //@Identity
+    @Identity
     val number: ContractNumber,
     val lessee: Customer,
     val car: Car,
