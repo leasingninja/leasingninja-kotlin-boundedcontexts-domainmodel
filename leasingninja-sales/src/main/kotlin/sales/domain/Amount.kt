@@ -20,5 +20,15 @@ data class Amount private constructor(
 
     val amount get() = amountInCents / 100.0
 
+    operator fun plus(addend: Amount): Amount {
+        require(currency == addend.currency)
+        return Amount(amountInCents + addend.amountInCents, currency)
+    }
+
+    operator fun minus(addend: Amount): Amount {
+        require(currency == addend.currency)
+        return Amount(amountInCents - addend.amountInCents, currency)
+    }
+
 	override fun toString() = currency.toString() + " " + amount
 }
