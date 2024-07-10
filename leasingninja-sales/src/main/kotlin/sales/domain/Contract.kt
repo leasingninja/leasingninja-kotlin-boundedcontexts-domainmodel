@@ -24,20 +24,6 @@ data class Interest(val perYear: Double) {
     val perMonth get() = perYear / 12.0
 }
 
-/**
- * Simulates the infamous HP12c calculator that is widely used in the leasing industry.
- */
-//@Service
-fun pmt(n: Double, iInPercent: Double, pv: Double, fv: Double, s: Double): Double {
-    val i = iInPercent / 100
-
-    if (i == 0.0) {
-        return (-1 * pv - fv) / n
-    }
-
-    return (i * ( fv + pv * Math.pow(1 + i, n))) / ((1 + i * s) * (1 - Math.pow(1 + i, n)))
-}
-
 @Entity
 class Contract(
     @Identity
@@ -59,7 +45,7 @@ class Contract(
         val pmt = /*FinancialCalculator.*/pmt(
             leaseTerm.noOfMonths.toDouble(),
             interest.perMonth,
-            -1.0 * price.amountInCents,
+            -1.0 * price.amount,
             residualValue,
             inAdvance)
 
@@ -69,6 +55,21 @@ class Contract(
     }
 
     val isCalculated get() = calculation != null
+
+    val leaseTerm get(): LeaseTerm {
+        assert(isCalculated)
+        return calculation!!.leaseTerm
+    }
+
+    val interest get(): Interest {
+        assert(isCalculated)
+        return calculation!!.interest
+    }
+
+    val installment get(): Amount {
+        assert(isCalculated)
+        return calculation!!.installment
+    }
 
 	fun sign(date: LocalDate) {
 		assert(isSigned)
