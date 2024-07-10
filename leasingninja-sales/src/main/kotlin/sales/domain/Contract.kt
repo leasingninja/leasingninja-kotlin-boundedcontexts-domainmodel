@@ -72,8 +72,8 @@ class Contract(
     }
 
 	fun sign(date: LocalDate) {
-		assert(isSigned)
         assert(isCalculated)
+		assert(!isSigned)
 
 		this.signDate = date
 
