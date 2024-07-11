@@ -2,37 +2,9 @@ package io.leasingninja.sales.domain
 
 import java.time.LocalDate
 
-import org.jmolecules.ddd.annotation.ValueObject
 import org.jmolecules.ddd.annotation.Service
 import org.jmolecules.ddd.annotation.Entity
 import org.jmolecules.ddd.annotation.Identity
-
-@ValueObject
-data class Customer(val customer: String) {
-    init {
-        require(isValid(customer))
-    }
-
-    companion object {
-        fun isValid(nameString: String): Boolean {
-            return nameString.matches(Regex("^\\p{L}+(\\s\\p{L}+)*$"));
-        }
-    }
-}
-
-@ValueObject
-data class LeaseTerm private constructor(
-    val noOfMonths: Int
-) {
-    companion object {
-        fun ofMonths(noOfMonths: Int) = LeaseTerm(noOfMonths)
-        fun ofYears(noOfYears: Int) = LeaseTerm(noOfYears * 12)
-    }
-}
-@ValueObject
-data class Interest(val perYear: Double) {
-    val perMonth get() = perYear / 12.0
-}
 
 @Entity
 class Contract(
