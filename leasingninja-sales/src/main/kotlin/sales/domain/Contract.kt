@@ -19,7 +19,7 @@ class Contract(
     var signDate: LocalDate? = null
 
     fun calculateInstallmentFor(leaseTerm: LeaseTerm, interest: Interest) {
-        assert(!isSigned)
+        check(!isSigned)
 
         val inAdvance = 0.0
         val residualValue = 0.0
@@ -39,23 +39,23 @@ class Contract(
     val isCalculated get() = calculation != null
 
     val leaseTerm get(): LeaseTerm {
-        assert(isCalculated)
+        check(isCalculated)
         return calculation!!.leaseTerm
     }
 
     val interest get(): Interest {
-        assert(isCalculated)
+        check(isCalculated)
         return calculation!!.interest
     }
 
     val installment get(): Amount {
-        assert(isCalculated)
+        check(isCalculated)
         return calculation!!.installment
     }
 
 	fun sign(date: LocalDate) {
-        assert(isCalculated)
-		assert(!isSigned)
+        check(isCalculated)
+		check(!isSigned)
 
 		this.signDate = date
 
