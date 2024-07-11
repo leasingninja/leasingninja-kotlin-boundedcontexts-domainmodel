@@ -8,7 +8,17 @@ import org.jmolecules.ddd.annotation.Entity
 import org.jmolecules.ddd.annotation.Identity
 
 @ValueObject
-data class Customer(val customer: String)
+data class Customer(val customer: String) {
+    init {
+        require(isValid(customer))
+    }
+
+    companion object {
+        fun isValid(nameString: String): Boolean {
+            return nameString.matches(Regex("^\\p{L}+(\\s\\p{L}+)*$"));
+        }
+    }
+}
 
 @ValueObject
 data class LeaseTerm private constructor(
