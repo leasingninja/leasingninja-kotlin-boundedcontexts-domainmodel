@@ -17,10 +17,10 @@ import io.leasingninja.sales.domain.Contracts
 import io.leasingninja.sales.domain.Currency
 import io.leasingninja.sales.domain.Customer
 
-@ExtendWith(MockKExtension::class)
+//@ExtendWith(MockKExtension::class)
 class FilloutContractTest : AnnotationSpec() {
 
-	@MockK
+	//@MockK
 	lateinit var contractsMock: Contracts
 
 	//@InjectMockKs
