@@ -2,7 +2,6 @@ package io.leasingninja.sales.domain
 
 import java.time.LocalDate
 
-import org.jmolecules.ddd.annotation.Service
 import org.jmolecules.ddd.annotation.Entity
 import org.jmolecules.ddd.annotation.Identity
 
@@ -15,7 +14,7 @@ class Contract(
     val price: Amount
 ) {
     data class Calculation(var leaseTerm: LeaseTerm, var interest: Interest, var installment: Amount)
-    var calculation: Calculation? = null
+    private var calculation: Calculation? = null
     var signDate: LocalDate? = null
 
     fun calculateInstallmentFor(leaseTerm: LeaseTerm, interest: Interest) {
@@ -64,5 +63,18 @@ class Contract(
 
     val isSigned get() = signDate != null
 
-    // TODO:("equals(), hashCode(), toString() ??")
+    // TODO:(toString() ??")
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Contract
+
+        return number == other.number
+    }
+
+    override fun hashCode(): Int {
+        return number.hashCode()
+    }
+
 }
