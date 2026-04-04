@@ -6,7 +6,7 @@
     "features": {
         "ghcr.io/devcontainers-extra/features/kotlin-sdkman:2": {
             "version": "2.3.20",
-            "jdkVersion": "21",
+            "jdkVersion": "25",
             "jdkDistro": "ms"
         },
         "ghcr.io/devcontainers-extra/features/fish-apt-get:1": {}
